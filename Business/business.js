@@ -2,7 +2,7 @@
  * Table Client
  * @typedef {object} Client 
  * @property {string?} id id généré par mongodb
- * @property {string} firts Prenom du client
+ * @property {string} first Prenom du client
  * @property {string} last Nom du client
  * @property {string} pseudo
  * @property {number} age
@@ -87,7 +87,8 @@ const client_checker = {
     last: /^[A-Za-z-]+$/,
     pseudo : /^[.]+$/,
     age : /^[0-9]+$/,
-    email: /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,3}$/
+    email: /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,3}$/,
+    password: /^[A-Za-z-]+$/
 };
 
 const resto_checker = {

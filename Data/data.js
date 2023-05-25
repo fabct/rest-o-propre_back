@@ -139,7 +139,15 @@ const get_lastresto_index = resto => Math.max(...resto.map(resto => resto.id),0)
  * @returns {Resto[]} Tableau de tout les Utilisateur
  */
 const restoArray = RESTODATA.find({}).toArray();
-const read_restaurantdatabase_file = () => JSON.parse(restoArray);
+const read_restaurantdatabase_file = () => {try {
+     // Parse a JSON
+     JSON.parse(restoArray); 
+ } catch{
+     // You can read e for more info
+     // Let's assume the error is that we already have parsed the clienttable
+     // So just return that
+     restoArray
+ };};
 
 /**
  * Ecrit un utilisateur dans la base de donnée 
@@ -160,7 +168,15 @@ const get_lastnote_index = note => Math.max(...note.map(note => note.id),0);
  * @returns {Note[]} Tableau de tout les Utilisateur
  */
 const noteArray = NOTEDATA.find({}).toArray();
-const read_notedatabase_file = () => JSON.parse(noteArray);
+const read_notedatabase_file = () => {try {
+     // Parse a JSON
+     JSON.parse(noteArray); 
+ } catch{
+     // You can read e for more info
+     // Let's assume the error is that we already have parsed the clienttable
+     // So just return that
+     noteArray
+ };};
 
 /**
  * Ecrit un utilisateur dans la base de donnée 
@@ -181,7 +197,15 @@ const get_lastfavoris_index = favoris => Math.max(...favoris.map(favoris => favo
  * @returns {Favoris[]} Tableau de tout les Utilisateur
  */
 const favorisArray = FAVDATA.find({}).toArray();
-const read_favorisdatabase_file = () => JSON.parse(favorisArray);
+const read_favorisdatabase_file = () => {try {
+     // Parse a JSON
+     JSON.parse(favorisArray); 
+ } catch{
+     // You can read e for more info
+     // Let's assume the error is that we already have parsed the clienttable
+     // So just return that
+     favorisArray
+ };};
 
 /**
  * Ecrit un utilisateur dans la base de donnée 
@@ -202,7 +226,15 @@ const get_lastproduct_index = product => Math.max(...product.map(product => prod
  * @returns {Product[]} Tableau de tout les Utilisateur
  */
 const productArray = PRODUCTDATA.find({}).toArray();
-const read_productdatabase_file = () => JSON.parse(productArray);
+const read_productdatabase_file = () => {try {
+     // Parse a JSON
+     JSON.parse(productArray); 
+ } catch{
+     // You can read e for more info
+     // Let's assume the error is that we already have parsed the clienttable
+     // So just return that
+     productArray
+ };};
 
 /**
  * Ecrit un utilisateur dans la base de donnée 
@@ -223,7 +255,15 @@ const get_lastinspection_index = inspection => Math.max(...inspection.map(inspec
  * @returns {Inspection_sanitaire[]} Tableau de tout les Utilisateur
  */
 const inspectionArray = INSPECTIONDATA.find({}).toArray();
-const read_inspectiondatabase_file = () => JSON.parse(inspectionArray);
+const read_inspectiondatabase_file = () => {try {
+     // Parse a JSON
+     JSON.parse(inspectionArray); 
+ } catch{
+     // You can read e for more info
+     // Let's assume the error is that we already have parsed the clienttable
+     // So just return that
+     inspectionArray
+ };};
 
 /**
  * Ecrit un utilisateur dans la base de donnée 
@@ -244,7 +284,15 @@ const get_lastobjectif_index = objectif => Math.max(...objectif.map(objectif => 
  * @returns {Objectif[]} Tableau de tout les Utilisateur
  */
 const objectifArray = OBJECTIFDATA.find({}).toArray();
-const read_objectifdatabase_file = () => JSON.parse(objectifArray);
+const read_objectifdatabase_file = () => {try {
+     // Parse a JSON
+     JSON.parse(objectifArray); 
+ } catch{
+     // You can read e for more info
+     // Let's assume the error is that we already have parsed the clienttable
+     // So just return that
+     objectifArray
+ };};
 
 /**
  * Ecrit un utilisateur dans la base de donnée 

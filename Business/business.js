@@ -107,7 +107,7 @@ const note_checker = {
     note_vaisselle : /^[0-5]+$/,
     note_proprete : /^[0-5]+$/,
     note_soin :/^[0-5]+$/,
-    comment : /^[.]{0,300}$/ // Limité a 300 cacactère au max
+    comment : /^.{0,300}$/ // Limité a 300 cacactère au max
 };
 
 const product_checker = {
@@ -121,7 +121,7 @@ const inspection_sanitaire_checker = {
 };
 
 const objectif_checker = {
-    description : /^[.]{600}$/
+    description : /^.{600}$/
 };
 
 // ---- Fonctions utiles --- //
@@ -407,10 +407,10 @@ const public_business = {
      */
     add_resto: async resto => {
         // on verifie si c'est la bonne structure
-        // if(!is_valid_resto(resto,true)){
-        //     console.error("N'est pas valid resto");
-        //     return false
-        // }
+        if(!is_valid_resto(resto,true)){
+            console.error("N'est pas valid resto");
+            return false
+        }
         return await data.add_resto(resto);
     },
     /**
@@ -430,9 +430,9 @@ const public_business = {
         }
 
         // //on verifie si la structure est correcte
-        // if(!is_valid_resto(resto.to_edit,false)){
-        //     return false;
-        // }
+        if(!is_valid_resto(resto.to_edit,false)){
+            return false;
+        }
 
         return await data.edit_resto(resto);
     },
@@ -469,10 +469,10 @@ const public_business = {
      */
     add_product: async product => {
         // on verifie si c'est la bonne structure
-        // if(!is_valid_product(product,true)){
-        //     console.error("N'est pas valid product");
-        //     return false
-        // }
+        if(!is_valid_product(product,true)){
+            console.error("N'est pas valid product");
+            return false
+        }
         return await data.add_product(product);
     },
     /**
@@ -492,9 +492,9 @@ const public_business = {
         }
 
         //on verifie si la structure est correcte
-        // if(!is_valid_product(product.to_edit,false)){
-        //     return false;
-        // }
+        if(!is_valid_product(product.to_edit,false)){
+            return false;
+        }
 
         return await data.edit_product(product);
     },
@@ -531,10 +531,10 @@ const public_business = {
      */
     add_note: async note => {
         // on verifie si c'est la bonne structure
-        // if(!is_valid_note(note,true)){
-        //     console.error("N'est pas valid note");
-        //     return false
-        // }
+        if(!is_valid_note(note,true)){
+            console.error("N'est pas valid note");
+            return false
+        }
         return await data.add_note(note);
     },
     /**
@@ -554,9 +554,9 @@ const public_business = {
         }
 
         //on verifie si la structure est correcte
-        // if(!is_valid_note(note.to_edit,false)){
-        //     return false;
-        // }
+        if(!is_valid_note(note.to_edit,false)){
+            return false;
+        }
 
         return await data.edit_note(note);
     },
@@ -627,10 +627,10 @@ const public_business = {
      */
     add_inspection: async inspection => {
         // on verifie si c'est la bonne structure
-        // if(!is_valid_inspection(inspection,true)){
-        //     console.error("N'est pas valid inspection");
-        //     return false
-        // }
+        if(!is_valid_inspection(inspection,true)){
+            console.error("N'est pas valid inspection");
+            return false
+        }
         return await data.add_inspection(inspection);
     },
     /**
@@ -650,9 +650,9 @@ const public_business = {
         }
 
         //on verifie si la structure est correcte
-        // if(!is_valid_inspection(inspection.to_edit,false)){
-        //     return false;
-        // }
+        if(!is_valid_inspection(inspection.to_edit,false)){
+            return false;
+        }
 
         return await data.edit_inspection(inspection);
     },
@@ -689,10 +689,10 @@ const public_business = {
      */
     add_objectif: async objectif => {
         // on verifie si c'est la bonne structure
-        // if(!is_valid_objectif(objectif,true)){
-        //     console.error("N'est pas valid objectif");
-        //     return false
-        // }
+        if(!is_valid_objectif(objectif,true)){
+            console.error("N'est pas valid objectif");
+            return false
+        }
         return data.add_objectif(objectif);
     },
     /**
@@ -712,9 +712,9 @@ const public_business = {
         }
 
         //on verifie si la structure est correcte
-        // if(!is_valid_objectif(objectif.to_edit,false)){
-        //     return false;
-        // }
+        if(!is_valid_objectif(objectif.to_edit,false)){
+            return false;
+        }
 
         return data.edit_objectif(objectif);
     },

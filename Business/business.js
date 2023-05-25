@@ -18,6 +18,7 @@
  * @property {string} name Nom de l'établissement
  * @property {string} adress Adresse de l'établissement
  * @property {string} description_resto Description de l'établissement
+ * @property {int} type le type de restaurant exemple: italien
  * @property {Array} photo_uuid Tableau contenant les adresses des photos
  * @property {string} email Email de l'etablissement
  * @property {string?} password Mot de passe de l'établissement
@@ -80,6 +81,7 @@
 
 //----- Importation des modules --------//
 
+const data = require("../Data/data");
 const client_checker = {
     first: /^[A-Za-z-]+$/,
     last: /^[A-Za-z-]+$/,
@@ -92,6 +94,7 @@ const resto_checker = {
     name : /^[A-Za-z-]+$/,
     adress: /^[A-Za-z0-9]+$/,
     email: /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,3}$/,
+    type:/^[0-9]+$/,
     description_resto: /^[.]{150}/,
     first_prop:/^[A-Za-z-]+$/,
     last_prop:/^[A-Za-z-]+$/,

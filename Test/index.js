@@ -1,34 +1,101 @@
-//const { MongoClient, ServerApiVersion } = require("mongodb");
+/*
 
-//// Replace the placeholder with your Atlas connection string
-//const uri = "mongodb+srv://rest-o-propre:FE9Xb6Y0w27hxn0O@rest-o-propre.ufrwqtj.mongodb.net/";
+// GET
 
-//// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-//const client = new MongoClient(uri,  {
-//        serverApi: {
-//            version: ServerApiVersion.v1,
-//            strict: true,
-//            deprecationErrors: true,
-//        }
-//    }
-//);
+fetch("/clients", {
+    method: "get"
+}).then(res => res.json())
 
-//async function run() {
-//  //try {
-//    // Connect the client to the server (optional starting in v4.7)
-//    await client.connect();
-//    // Send a ping to confirm a successful connection
-//    await client.db("admin").command({ ping: 1 });
-//    const db = client.db("rest-o-propre");
-//    const collection = db.collection("User");
-//    const Newdata = await collection.insertOne({a:3});
-//    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-//    console.log(`inséré avec succès ${Newdata}`);
-//  //} //finally {
-//    // Ensures that the client will close when you finish/error
-//    //await client.close();
-//  //}
-//}
-//run().catch(console.dir);
+// POST
+
+// Valide
+
+fetch("/clients", {
+    method: "post",
+    headers: {
+        "Content-Type": "application/json",
+        "Content-Security-Policy": "connect-src/self"
+
+    },
+    body: JSON.stringify({
+        first: "Jean",
+        last: "Bombheur",
+        pseudo: "JB",
+        age: "35",
+        email: "jean.bombheur@cochonou.fr",
+        password: "XXX-pssd-172"
+    })
+})
+
+// Invalide
+
+fetch("/users", {
+    method: "post",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        last: "Bombheur",
+        country: "France",
+        company: "Cochonou",
+        email: "jean.bombheur@cochonou.fr"
+    })
+})
+
+// PUT
+
+// Valide
+
+fetch("/users", {
+    method: "put",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        id: 1,
+        to_edit: {
+            last: "Bombeur",
+            email: "jean.bombeur@cochonou.fr"
+        }
+    })
+})
+
+// Invalide
+
+fetch("/users", {
+    method: "put",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        id: 1,
+        to_edit: {
+            sex_appeal: 42069
+        }
+    })
+})
+
+//DELETE
+
+fetch("/users", {
+    method: "delete",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        id: 1
+    })
+})
+
+fetch("/users", {
+    method: "delete",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        id: 69
+    })
+})
+*/
 
 require("../Presentation/api").start(5050);

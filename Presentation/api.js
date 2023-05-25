@@ -54,14 +54,14 @@ const api = {
         //Client ---------------------
         // GET request - See users
         // Return a JSON containing the users
-        app.get(REQUESTS_CLIENT_URL, (req, res) => {
-          res.json(business.get_all_client());
+        app.get(REQUESTS_CLIENT_URL, async (req, res) => {
+          res.json(await business.get_all_client());
         });
         // POST request - Add user
         // Takes the req body and send response
         // according to business
-        app.post(REQUESTS_CLIENT_URL, (req, res) => {
-          let is_added = business.add_client(req.body);
+        app.post(REQUESTS_CLIENT_URL, async (req, res) => {
+          let is_added = await business.add_client(req.body);
 
           // Send adequate responses
           if (is_added) {
@@ -73,8 +73,8 @@ const api = {
         // PUT request - Edit user
         // Takes the req body and send response
         // according to business
-        app.put(REQUESTS_CLIENT_URL, (req, res) => {
-          let is_edited = business.edit_client(req.body);
+        app.put(REQUESTS_CLIENT_URL, async (req, res) => {
+          let is_edited = await business.edit_client(req.body);
 
           // Send adequate responses
           if (is_edited) {
@@ -86,8 +86,8 @@ const api = {
         // DELETE request - Delete user
         // Takes the req body and send response
         // according to business
-        app.delete(REQUESTS_CLIENT_URL, (req, res) => {
-          let is_deleted = business.delete_client(req.body);
+        app.delete(REQUESTS_CLIENT_URL, async (req, res) => {
+          let is_deleted = await business.delete_client(req.body);
 
           // Send adequate responses
           if (is_deleted) {
@@ -99,201 +99,201 @@ const api = {
         //Resto -----------------------
         // GET request - See users
         // Return a JSON containing the users
-        // app.get(REQUESTS_RESTAURANT_URL, (req, res) => {
-        //   res.json(business.get_all_resto());
-        // });
-        // app.post(REQUESTS_RESTAURANT_URL, (req, res) => {
-        //   let is_added = business.add_resto(req.body);
+        app.get(REQUESTS_RESTAURANT_URL, async (req, res) => {
+          res.json(await business.get_all_resto());
+        });
+        app.post(REQUESTS_RESTAURANT_URL, async (req, res) => {
+          let is_added = await business.add_resto(req.body);
 
-        //   // Send adequate responses
-        //   if (is_added) {
-        //       res.sendStatus(200);
-        //   } else {
-        //       res.sendStatus(400);
-        //   }
-        // });
-        // app.put(REQUESTS_RESTAURANT_URL, (req, res) => {
-        //   let is_edited = business.edit_resto(req.body);
+          // Send adequate responses
+          if (is_added) {
+              res.sendStatus(200);
+          } else {
+              res.sendStatus(400);
+          }
+        });
+        app.put(REQUESTS_RESTAURANT_URL, async (req, res) => {
+          let is_edited = await business.edit_resto(req.body);
 
-        //   // Send adequate responses
-        //   if (is_edited) {
-        //       res.sendStatus(200);
-        //   } else {
-        //       res.sendStatus(400);
-        //   }
-        // });
-        // app.delete(REQUESTS_RESTAURANT_URL, (req, res) => {
-        //   let is_deleted = business.delete_resto(req.body);
+          // Send adequate responses
+          if (is_edited) {
+              res.sendStatus(200);
+          } else {
+              res.sendStatus(400);
+          }
+        });
+        app.delete(REQUESTS_RESTAURANT_URL, async  (req, res) => {
+          let is_deleted = await business.delete_resto(req.body);
 
-        //   // Send adequate responses
-        //   if (is_deleted) {
-        //       res.sendStatus(200);
-        //   } else {
-        //       res.sendStatus(400);
-        //   }
-        // });
+          // Send adequate responses
+          if (is_deleted) {
+              res.sendStatus(200);
+          } else {
+              res.sendStatus(400);
+          }
+        });
         // //Note ------------------------
         // // GET request - See users
         // // Return a JSON containing the users
-        // app.get(REQUESTS_NOTE_URL, (req, res) => {
-        //   res.json(business.get_all_note());
-        // });
-        // app.post(REQUESTS_NOTE_URL, (req, res) => {
-        //   let is_added = business.add_note(req.body);
+        app.get(REQUESTS_NOTE_URL, async (req, res) => {
+          res.json(await business.get_all_note());
+        });
+        app.post(REQUESTS_NOTE_URL, async (req, res) => {
+          let is_added = await business.add_note(req.body);
 
-        //   // Send adequate responses
-        //   if (is_added) {
-        //       res.sendStatus(200);
-        //   } else {
-        //       res.sendStatus(400);
-        //   }
-        // });
-        // app.put(REQUESTS_NOTE_URL, (req, res) => {
-        //   let is_edited = business.edit_note(req.body);
+          // Send adequate responses
+          if (is_added) {
+              res.sendStatus(200);
+          } else {
+              res.sendStatus(400);
+          }
+        });
+        app.put(REQUESTS_NOTE_URL, async (req, res) => {
+          let is_edited = await business.edit_note(req.body);
 
-        //   // Send adequate responses
-        //   if (is_edited) {
-        //       res.sendStatus(200);
-        //   } else {
-        //       res.sendStatus(400);
-        //   }
-        // });
-        // app.delete(REQUESTS_NOTE_URL, (req, res) => {
-        //   let is_deleted = business.delete_note(req.body);
+          // Send adequate responses
+          if (is_edited) {
+              res.sendStatus(200);
+          } else {
+              res.sendStatus(400);
+          }
+        });
+        app.delete(REQUESTS_NOTE_URL, async (req, res) => {
+          let is_deleted = await business.delete_note(req.body);
 
-        //   // Send adequate responses
-        //   if (is_deleted) {
-        //       res.sendStatus(200);
-        //   } else {
-        //       res.sendStatus(400);
-        //   }
-        // });
+          // Send adequate responses
+          if (is_deleted) {
+              res.sendStatus(200);
+          } else {
+              res.sendStatus(400);
+          }
+        });
         // //Favoris ---------------------
-        // app.get(REQUESTS_FAVORIS_URL, (req, res) => {
-        //   res.json(business.get_all_favoris());
-        // });
-        // app.post(REQUESTS_FAVORIS_URL, (req, res) => {
-        //   let is_added = business.add_favoris(req.body);
+        app.get(REQUESTS_FAVORIS_URL, async (req, res) => {
+          res.json(await business.get_all_favoris());
+        });
+        app.post(REQUESTS_FAVORIS_URL, async (req, res) => {
+          let is_added = await business.add_favoris(req.body);
 
-        //   // Send adequate responses
-        //   if (is_added) {
-        //       res.sendStatus(200);
-        //   } else {
-        //       res.sendStatus(400);
-        //   }
-        // });
-        // app.delete(REQUESTS_FAVORIS_URL, (req, res) => {
-        //   let is_deleted = business.delete_favoris(req.body);
+          // Send adequate responses
+          if (is_added) {
+              res.sendStatus(200);
+          } else {
+              res.sendStatus(400);
+          }
+        });
+        app.delete(REQUESTS_FAVORIS_URL, async (req, res) => {
+          let is_deleted = await business.delete_favoris(req.body);
 
-        //   // Send adequate responses
-        //   if (is_deleted) {
-        //       res.sendStatus(200);
-        //   } else {
-        //       res.sendStatus(400);
-        //   }
-        // });
+          // Send adequate responses
+          if (is_deleted) {
+              res.sendStatus(200);
+          } else {
+              res.sendStatus(400);
+          }
+        });
         // //Product ---------------------
-        // app.get(REQUESTS_PRODUCT_URL, (req, res) => {
-        //   res.json(business.get_all_product());
-        // });
-        // app.post(REQUESTS_PRODUCT_URL, (req, res) => {
-        //   let is_added = business.add_product(req.body);
+        app.get(REQUESTS_PRODUCT_URL, async (req, res) => {
+          res.json(await business.get_all_product());
+        });
+        app.post(REQUESTS_PRODUCT_URL, async (req, res) => {
+          let is_added = await business.add_product(req.body);
 
-        //   // Send adequate responses
-        //   if (is_added) {
-        //       res.sendStatus(200);
-        //   } else {
-        //       res.sendStatus(400);
-        //   }
-        // });
-        // app.put(REQUESTS_PRODUCT_URL, (req, res) => {
-        //   let is_edited = business.edit_product(req.body);
+          // Send adequate responses
+          if (is_added) {
+              res.sendStatus(200);
+          } else {
+              res.sendStatus(400);
+          }
+        });
+        app.put(REQUESTS_PRODUCT_URL, async (req, res) => {
+          let is_edited = await business.edit_product(req.body);
 
-        //   // Send adequate responses
-        //   if (is_edited) {
-        //       res.sendStatus(200);
-        //   } else {
-        //       res.sendStatus(400);
-        //   }
-        // });
-        // app.delete(REQUESTS_PRODUCT_URL, (req, res) => {
-        //   let is_deleted = business.delete_product(req.body);
+          // Send adequate responses
+          if (is_edited) {
+              res.sendStatus(200);
+          } else {
+              res.sendStatus(400);
+          }
+        });
+        app.delete(REQUESTS_PRODUCT_URL, async (req, res) => {
+          let is_deleted = await business.delete_product(req.body);
 
-        //   // Send adequate responses
-        //   if (is_deleted) {
-        //       res.sendStatus(200);
-        //   } else {
-        //       res.sendStatus(400);
-        //   }
-        // });
+          // Send adequate responses
+          if (is_deleted) {
+              res.sendStatus(200);
+          } else {
+              res.sendStatus(400);
+          }
+        });
         // //Inspection ------------------
-        // app.get(REQUESTS_INSPECTION_URL, (req, res) => {
-        //   res.json(business.get_all_inspection());
-        // });
-        // app.post(REQUESTS_INSPECTION_URL, (req, res) => {
-        //   let is_added = business.add_inspection(req.body);
+        app.get(REQUESTS_INSPECTION_URL, async (req, res) => {
+          res.json(await business.get_all_inspection());
+        });
+        app.post(REQUESTS_INSPECTION_URL, async (req, res) => {
+          let is_added = await business.add_inspection(req.body);
 
-        //   // Send adequate responses
-        //   if (is_added) {
-        //       res.sendStatus(200);
-        //   } else {
-        //       res.sendStatus(400);
-        //   }
-        // });
-        // app.put(REQUESTS_INSPECTION_URL, (req, res) => {
-        //   let is_edited = business.edit_inspection(req.body);
+          // Send adequate responses
+          if (is_added) {
+              res.sendStatus(200);
+          } else {
+              res.sendStatus(400);
+          }
+        });
+        app.put(REQUESTS_INSPECTION_URL, async (req, res) => {
+          let is_edited = await business.edit_inspection(req.body);
 
-        //   // Send adequate responses
-        //   if (is_edited) {
-        //       res.sendStatus(200);
-        //   } else {
-        //       res.sendStatus(400);
-        //   }
-        // });
-        // app.delete(REQUESTS_INSPECTION_URL, (req, res) => {
-        //   let is_deleted = business.delete_inspection(req.body);
+          // Send adequate responses
+          if (is_edited) {
+              res.sendStatus(200);
+          } else {
+              res.sendStatus(400);
+          }
+        });
+        app.delete(REQUESTS_INSPECTION_URL, async (req, res) => {
+          let is_deleted = await business.delete_inspection(req.body);
 
-        //   // Send adequate responses
-        //   if (is_deleted) {
-        //       res.sendStatus(200);
-        //   } else {
-        //       res.sendStatus(400);
-        //   }
-        // });
+          // Send adequate responses
+          if (is_deleted) {
+              res.sendStatus(200);
+          } else {
+              res.sendStatus(400);
+          }
+        });
         // //Objectif --------------------
-        // app.get(REQUESTS_OBJECTIF_URL, (req, res) => {
-        //   res.json(business.get_all_objectif());
-        // });
-        // app.post(REQUESTS_OBJECTIF_URL, (req, res) => {
-        //   let is_added = business.add_objectif(req.body);
+        app.get(REQUESTS_OBJECTIF_URL, async (req, res) => {
+          res.json(await business.get_all_objectif());
+        });
+        app.post(REQUESTS_OBJECTIF_URL, async (req, res) => {
+          let is_added = await business.add_objectif(req.body);
 
-        //   // Send adequate responses
-        //   if (is_added) {
-        //       res.sendStatus(200);
-        //   } else {
-        //       res.sendStatus(400);
-        //   }
-        // });
-        // app.put(REQUESTS_OBJECTIF_URL, (req, res) => {
-        //   let is_edited = business.edit_objectif(req.body);
+          // Send adequate responses
+          if (is_added) {
+              res.sendStatus(200);
+          } else {
+              res.sendStatus(400);
+          }
+        });
+        app.put(REQUESTS_OBJECTIF_URL, async (req, res) => {
+          let is_edited = await business.edit_objectif(req.body);
 
-        //   // Send adequate responses
-        //   if (is_edited) {
-        //       res.sendStatus(200);
-        //   } else {
-        //       res.sendStatus(400);
-        //   }
-        // });
-        // app.delete(REQUESTS_OBJECTIF_URL, (req, res) => {
-        //   let is_deleted = business.delete_objectif(req.body);
+          // Send adequate responses
+          if (is_edited) {
+              res.sendStatus(200);
+          } else {
+              res.sendStatus(400);
+          }
+        });
+        app.delete(REQUESTS_OBJECTIF_URL, async (req, res) => {
+          let is_deleted = await business.delete_objectif(req.body);
 
-        //   // Send adequate responses
-        //   if (is_deleted) {
-        //       res.sendStatus(200);
-        //   } else {
-        //       res.sendStatus(400);
-        //   }
-        // });
+          // Send adequate responses
+          if (is_deleted) {
+              res.sendStatus(200);
+          } else {
+              res.sendStatus(400);
+          }
+        });
 
         // On demmarre a écouter dans le port donné 
         app.listen(port,() =>{
